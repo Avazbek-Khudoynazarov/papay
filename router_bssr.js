@@ -25,7 +25,7 @@ router_bssr.post(
   productController.addNewProduct
 );
 router_bssr.post(
-  "/products/edit/:id ",
+  "/products/edit/:id",
   restaurantController.validateAuthRestaurant,
   productController.updateChosenProduct
 );
