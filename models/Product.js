@@ -22,7 +22,7 @@ class Product {
     }
   }
 
-  async addNewProductData(id, updated_data, mb_id) {
+  async updateChosenProductData(id, updated_data, mb_id) {
     try {
       id = shapeIntoMongooseObjectId(id);
       mb_id = shapeIntoMongooseObjectId(mb_id);
