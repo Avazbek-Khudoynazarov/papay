@@ -48,7 +48,7 @@ restaurantController.signupProcess = async (req, res) => {
 
     const member = new Member();
     const result = await member.signupData(new_member);
-    assert(result, Definer.general_err3);
+    assert(result, Definer.general_err1);
 
     req.session.member = result;
     res.redirect("/resto/products/menu");

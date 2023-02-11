@@ -68,9 +68,79 @@
         >
           <div
             class="long_input"
-            style="align-items: flex-end; margin-bottom: 25px;">
+            style="display: flex; align-items: center;">
             <span class="new_dish_txt">Yangi Taom</span>
           </div>
+
+<div>
+  <div class="long_input">
+<label>Taom nomi</label>
+<input type="text" placeholder="Taom nomi" name="product_name" class="product_name">
+  </div>
+<input name="product_status" value="PAUSED" class="product_status" hidden>
+</div>
+<div class="half_input_frame">
+  <div class="half_input">
+    <label>Taom narxi</label>
+<input type="number" placeholder="Taom Narxi" name="product_price" class="product_price">
+  </div>
+  <div class="half_input">
+    <label>Taom Qoldiq Miqdori</label>
+<input type="number" placeholder="Taom Mavjud miqdori" name="product_left_cnt" class="product_left_cnt">
+  </div>
+</div>
+
+<div class="half_input_frame">
+<div class="half_input">
+  <label>Taom Turi</label>
+  <select class="product_collection" name="product_collection">
+    <option value="dish" selected>Taom</option>
+    <option value="salad">Salad</option>
+    <option value="dessert">Dessert</option>
+    <option value="drink">Ichimlik</option>
+    <option value="etc">Boshqa</option>
+  </select>
+</div>
+
+<div class="half_input" id="product_collection">
+  <label>Taom Hajmi</label>
+  <select class="product_size" name="product_size">
+    <option value="small">Kichkina</option>
+    <option value="normal" selected>O'rtacha</option>
+    <option value="large">Katta</option>
+    <option value="set">Set</option>
+  </select>
+</div>
+
+<div class="half_input" id="product_volume" style="display: none;">
+  <label>Ichimlik Turi</label>
+  <select class="product_volume" name="product_volume">
+    <option value="0.5">0.5 litre</option>
+    <option value="1">1 litre</option>
+    <option value="1.2">1.2 litre</option>
+    <option value="1.5">1.5 litre</option>
+    <option value="2">2 litre</option>
+  </select>
+</div>
+
+</div>
+
+<div class="long_input">
+  <label>Taom Haqida</label>
+  <textarea name="product_description" class="product_description"></textarea>
+</div>
+
+<div class="img_frame">
+  <label>Taom Rasmlari</label>
+  <div class="media-frame">
+<div class="upload_img_box"></div>
+<div class="upload_img_box"></div>
+<div class="upload_img_box"></div>
+<div class="upload_img_box"></div>
+<div class="upload_img_box"></div>
+  </div>
+</div>
+
         </form>
       </div>
     </div>
