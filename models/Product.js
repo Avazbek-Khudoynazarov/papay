@@ -2,6 +2,7 @@ const assert = require("assert");
 const { shapeIntoMongooseObjectId } = require("../lib/config");
 const Definer = require("../lib/mistake");
 const ProductModel = require("../schema/product.model");
+const Member = require("./Member");
 
 class Product {
   constructor() {
@@ -31,6 +32,30 @@ class Product {
           { $sort: sort },
           { $skip: (data.page * 1 - 1) * data.limit },
           { $limit: data.limit * 1 },
+          // TODO: CHECK AUTH MEMBER PRODUCT LIKES
+        ])
+        .exec();
+
+      assert.ok(result, Definer.general_err1);
+      return result;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  async getChosenProductData(member, id) {
+    try {
+      const auth_mb_id = shapeIntoMongooseObjectId(member?._id);
+      id = shapeIntoMongooseObjectId(id);
+
+      if (member) {
+        const member_obj = new Member();
+        member_obj.viewChosenItemByMember(member, id, "product");
+      }
+
+      const result = await this.productModel
+        .aggregate([
+          { $match: { _id: id, product_status: "PROCESS" } },
           // TODO: CHECK AUTH MEMBER PRODUCT LIKES
         ])
         .exec();

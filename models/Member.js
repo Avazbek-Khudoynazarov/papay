@@ -59,7 +59,6 @@ class Member {
       console.log("member:::", member);
 
       if (member) {
-        // condition if not seen before
         await this.viewChosenItemByMember(member, id, "member");
       }
 
@@ -67,6 +66,7 @@ class Member {
         .aggregate([
           { $match: { _id: id, mb_status: "ACTIVE" } },
           { $unset: "mb_password" },
+          // TODO: check auth member liked the chosen member
         ])
         .exec();
 
